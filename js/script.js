@@ -2,7 +2,6 @@ const gallery = document.getElementById('gallery');
 const modal = document.querySelector('.modal-container');
 let userArray = [];
 
-
 fetch('https://randomuser.me/api/?nat=us&results=12&inc=gender,name,email,picture,location,cell,dob')
   .then(response => response.json())
   .then(data => generateUsers(data.results))
@@ -156,10 +155,6 @@ function userModal(user){
           modalContainer.style.display = 'none';
           modalData.innerHTML = '';
       });
-
-
-
-
     });
   };
 }
@@ -174,7 +169,6 @@ function searchBar(){
   `;
   document.querySelector('.search-container').innerHTML += searchHtml;
   document.querySelector('#search-input').setAttribute('placeholder','Search by Name');
-
 
   document.querySelector('#serach-submit').addEventListener('click', function(event){
     event.preventDefault();
@@ -194,4 +188,4 @@ function searchBar(){
 
     };
   });
-  };
+};
