@@ -13,7 +13,6 @@ fetch('https://randomuser.me/api/?nat=us&results=12&inc=gender,name,email,pictur
 function generateUsers(data){
   //push fetched data into an array
   data.map( user => userArray.push(user));
-  console.log(userArray);
 
   //map over the array and generate html for each user
   const html = userArray.map(user =>`
@@ -86,7 +85,6 @@ function userModal(user){
         } else if (i = 11) {
           i = 0
         }
-        console.log(i)
           let modalHtml = `
             <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
             <div class="modal-info-container">
@@ -106,7 +104,6 @@ function userModal(user){
         let closeModalBtn = document.getElementById('modal-close-btn');
 
         closeModalBtn.addEventListener('click', function(){
-            console.log('is this click firing?');
             modalContainer.style.display = 'none';
             modalData.innerHTML = '';
         });
@@ -114,14 +111,12 @@ function userModal(user){
 
       prevButton.addEventListener('click', function(){
         modalData.innerHTML = ' ';
-        console.log(i)
         if ( i >= 1){
           i --;
         } else if ( i == 0 ){
           i = 11;
         }
 
-        console.log(i)
           let modalHtml = `
             <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
             <div class="modal-info-container">
@@ -151,7 +146,6 @@ function userModal(user){
       let closeModalBtn = document.getElementById('modal-close-btn');
 
       closeModalBtn.addEventListener('click', function(){
-          console.log('is this click firing?');
           modalContainer.style.display = 'none';
           modalData.innerHTML = '';
       });
@@ -173,13 +167,11 @@ function searchBar(){
   document.querySelector('#serach-submit').addEventListener('click', function(event){
     event.preventDefault();
     let searchResult = document.querySelector('#search-input').value;
-    console.log(searchResult);
 
     let cards = document.querySelectorAll('.card');
 
     for (let i =0; i < cards.length; i++) {
       if (!userArray[i].name.first.includes(searchResult)){
-        console.log('its not here!');
         cards[i].classList.add('notFound');
       } else if (userArray[i].name.first.includes(searchResult)){
         cards[i].classList.remove('notFound');
